@@ -49,6 +49,9 @@ func _update_slides() -> void:
 	for child in get_children():
 		if child is SplashScreenSlide:
 			slides.append(child)
+	
+	if slides.size() == 0:
+		push_warning("SplashScreen: No slides found. Add some SplashScreenSlide nodes as children to display them in a sequence.")
 
 
 func _start_slides() -> void:
