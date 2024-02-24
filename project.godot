@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="SplashScreenWizard"
+run/main_scene="res://demo_splash_screen_wizard/demo_splash_screen_wizard.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
