@@ -1,7 +1,7 @@
 # SplashScreenWizard
 
 <p align="center">
-  <img src="addons\splash_screen_wizard\icons\ProjectIcon.PNG" alt="Logo"/>
+  <img src="addons\splash_screen_wizard\icons\ProjectIcon.png" alt="Logo"/>
 </p>
 
 <center>
