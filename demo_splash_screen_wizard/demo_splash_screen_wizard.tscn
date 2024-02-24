@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo22hma5o31ig"]
+[gd_scene load_steps=5 format=3 uid="uid://bo22hma5o31ig"]
 
 [ext_resource type="Script" path="res://addons/splash_screen_wizard/splash_screen.gd" id="1_myy6d"]
 [ext_resource type="PackedScene" uid="uid://ckqiyl367tw67" path="res://demo_splash_screen_wizard/slides/slide_disclaimer.tscn" id="2_flgjm"]
 [ext_resource type="PackedScene" uid="uid://cxqpgg8ax8bqv" path="res://demo_splash_screen_wizard/slides/slide_godot.tscn" id="3_phgod"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xhda"]
+font_size = 56
 
 [node name="DemoSplashScreenWizard" type="Control"]
 layout_mode = 3
@@ -11,6 +14,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "Multiplayer MMO Battle Royale Survival Open World Game"
+label_settings = SubResource("LabelSettings_8xhda")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Button2" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Old Game"
+
+[node name="Button3" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "This button doesn't work"
 
 [node name="SplashScreen" type="Control" parent="."]
 layout_mode = 1
