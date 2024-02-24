@@ -22,7 +22,7 @@ signal finished
 @export var auto_start: bool = true
 ## The delay between the slides in seconds.
 @export var delay_between_slides: float = 1.0
-## The input event that can be used to skip a [SplashScreenSlide], if [member SplashScreenSlide.skippable] is `true`.
+## The input action that can be used to skip a [SplashScreenSlide], if [member SplashScreenSlide.skippable] is `true`.
 @export var skip_input_action: StringName
 ## If `true`, the splash screen will be deleted after it is finished using [method Node.queue_free].
 @export var delete_after_finished: bool = true
@@ -96,6 +96,6 @@ func _cleanup() -> void:
 
 func _skip_slide() -> void:
 	if current_slide:
-		current_slide.skip()
+		current_slide._skip()
 		_delay_timer.stop()
 		_delay_timer.emit_signal("timeout")

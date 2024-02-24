@@ -26,11 +26,8 @@ signal finished
 @export var continue_after_duration: bool = true
 ## The duration of the slide in seconds.
 @export var duration: float = 1.0
-## If true, the slide can be skipped by pressing 
+## If true, the slide can be skipped by pressing the keys defined by the [member SplashScreen.skip_input_action]
 @export var skippable: bool = false
-
-
-var _has_been_skipped: bool = false
 
 
 func _init() -> void:
@@ -58,7 +55,7 @@ func _start() -> void:
 	emit_signal("finished")
 
 
-func skip() -> void:
+func _skip() -> void:
 	if skippable:
 		hide()
 		process_mode = PROCESS_MODE_DISABLED
