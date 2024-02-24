@@ -43,9 +43,15 @@ func _ready() -> void:
 
 
 func _input(event):
+	if not current_slide:
+		return
+	
+	if skip_input_action == "":
+		return
+
 	if event.is_action_pressed(skip_input_action):
 		_skip_slide()
-
+	
 
 ## Starts the splash screen. This will update the slides, start them and clean up afterwards. Called automatically if [member auto_start] is `true`.
 func start() -> void:
