@@ -1,19 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckqiyl367tw67"]
+[gd_scene load_steps=5 format=3 uid="uid://ckqiyl367tw67"]
 
 [ext_resource type="Script" path="res://addons/splash_screen_wizard/splash_screen_slide.gd" id="1_5xj3q"]
-[ext_resource type="Script" path="res://addons/splash_screen_wizard/transitions/slide_transition_fade.gd" id="2_lsghp"]
-
-[sub_resource type="Resource" id="Resource_xm600"]
-script = ExtResource("2_lsghp")
-fade_type = 0
-duration = 0.5
-transition_type = 0
-
-[sub_resource type="Resource" id="Resource_ft61o"]
-script = ExtResource("2_lsghp")
-fade_type = 1
-duration = 0.5
-transition_type = 0
+[ext_resource type="Resource" uid="uid://dphiwpkixnobm" path="res://demo_splash_screen_wizard/transitions/fade_in.tres" id="2_074l1"]
+[ext_resource type="Resource" uid="uid://bt2wxjwarvrol" path="res://demo_splash_screen_wizard/transitions/fade_out.tres" id="3_m5f48"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_45uur"]
 font_size = 40
@@ -26,8 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5xj3q")
-transition_in = SubResource("Resource_xm600")
-transition_out = SubResource("Resource_ft61o")
+transition_in = ExtResource("2_074l1")
+transition_out = ExtResource("3_m5f48")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

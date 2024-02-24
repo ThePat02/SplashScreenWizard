@@ -17,7 +17,7 @@ func _init():
 
 func _start():
 	if transition_in:
-		transition_in._start(self)
+		await transition_in._start(self)
 	else:
 		show()
 	

@@ -7,6 +7,7 @@ signal slide_finished(slide: SplashScreenSlide)
 
 @export var auto_start: bool = true
 @export var delay_between_slides: float = 1.0
+@export var delete_after_finished: bool = true
 
 
 var slides: Array[SplashScreenSlide] = []
@@ -19,7 +20,16 @@ func _ready():
 
 func start():
 	_update_slides()
-	_start_slides()
+	await _start_slides()
+	_cleanup()
+
+
+func _update_slides():
+	slides.clear()
+
+	for child in get_children():
+		if child is SplashScreenSlide:
+			slides.append(child)
 
 
 func _start_slides():
@@ -36,8 +46,6 @@ func _start_slides():
 		slide_finished.emit(slide)
 
 
-func _update_slides():
-	slides.clear()
-
-	for child: SplashScreenSlide in get_children():
-		slides.append(child)
+func _cleanup() -> void:
+	if delete_after_finished:
+		queue_free()
