@@ -16,6 +16,12 @@ A simple plugin for the Godot Game Engine that allows you to create a custom spl
 
 You can also [buy me a coffee](https://ko-fi.com/pat02) if you like the plugin and feel like supporting me :D
 
+
+## Features
+- Plug & Play: Just add the ![IconSplashScreen](addons/splash_screen_wizard/icons/SplashScreen.svg) `SplashScreen` node to your scene and you are ready to go.
+- Create custom splash screens in the editor by using ![IconSplashScreenSlide](addons/splash_screen_wizard/icons/SplashScreenSlide.svg) `SplashScreenSlide` nodes.
+- Set transitions for each slide using the `SlideTransition` system.
+
 ## Installation
 You can install the plugin in one of the following ways:
 
