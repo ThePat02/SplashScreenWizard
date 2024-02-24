@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="SplashScreenWizard"
+config/description="A simple plugin for the Godot Game Engine that allows you to create a custom splash screen for your game."
 run/main_scene="res://demo_splash_screen_wizard/demo_splash_screen_wizard.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://addons/splash_screen_wizard/icons/ProjectIcon.png"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/splash_screen_wizard/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false

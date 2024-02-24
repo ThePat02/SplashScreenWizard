@@ -1,9 +1,20 @@
 # SplashScreenWizard
-A simple plugin for the Godot Game Engine that allows you to create a custom splash screen for your game. 
+
+<p align="center">
+  <img src="addons\splash_screen_wizard\icons\ProjectIcon.png" alt="Logo"/>
+</p>
+
+<center>
+A simple plugin for the Godot Game Engine that allows you to create a custom splash screen for your game.
+</center>
+
+<br>
 
 > [!NOTE]
 > This plugin doesn't change the Boot Splash Screen of the Godot Engine that can be customized in the Project Settings. It provieds a new set of `Control` nodes that can be used to create a custom splash screen inside the `SceneTree`.
 
+
+You can also [buy me a coffee](https://ko-fi.com/pat02) if you like the plugin and feel like supporting me :D
 
 ## Installation
 You can install the plugin in one of the following ways:
@@ -16,6 +27,12 @@ You can install the plugin in one of the following ways:
 ## Usage
 > [!TIP]
 > Each node and resource is documented using the Godot Engine's built-in documentation system. You can access the documentation by pressing `F1` or hovering over properties in the editor.
+
+<p align="center">
+  <img src="images\screenshot_tree.png" alt="Screenshot of the SceneTree"/>
+</p>
+
+The plugin provides the ![IconSplashScreen](addons/splash_screen_wizard/icons/SplashScreen.svg) `SplashScreen`  and ![IconSplashScreenSlide](addons/splash_screen_wizard/icons/SplashScreenSlide.svg) `SplashScreenSlide` nodes. The `SplashScreen` node is the root node of the splash screen and the `SplashScreenSlide` nodes are the slides that are shown on the splash screen in order. You can add as many slides as you want to the `SplashScreen` node and customize them to your liking.
 
 
 ### Quick Start
@@ -88,4 +105,4 @@ Feel free to open a pull request or an issue if you have any suggestions or foun
 
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.md).
