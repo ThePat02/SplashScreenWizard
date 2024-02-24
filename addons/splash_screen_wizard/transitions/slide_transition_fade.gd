@@ -7,6 +7,7 @@ enum FadeType
     FADE_OUT,
 }
 
+
 @export var fade_type: FadeType = FadeType.FADE_IN
 @export var duration: float = 0.5
 @export var transition_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR

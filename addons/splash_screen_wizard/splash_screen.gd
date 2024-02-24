@@ -1,3 +1,4 @@
+@icon("res://addons/splash_screen_wizard/icons/SplashScreen.svg")
 class_name SplashScreen extends Control
 
 
