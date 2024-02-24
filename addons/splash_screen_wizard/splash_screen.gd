@@ -7,7 +7,7 @@ class_name SplashScreen extends Control
 ## Other nodes (e.g. a background or a logo) can be added as children as well,
 ## but they will not be affected by the splash screen and will be displayed at the same time as the slides.
 ##
-## @tutorial(GitHub ReadMe): https://github.com/ThePat02/SplashScreenWizard
+## @tutorial(QuickStart Guide): https://github.com/ThePat02/SplashScreenWizard?tab=readme-ov-file#quick-start
 
 
 ## Emitted when a new slide is started.

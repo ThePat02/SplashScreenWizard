@@ -9,7 +9,7 @@ class_name SplashScreenSlide extends Control
 ## when the slide is ready for the [member transition_out].
 ## This can be used to trigger animations, load resources, or perform any other logic that should be executed before the slide is finished.
 ##
-## @tutorial(GitHub ReadMe): https://github.com/ThePat02/SplashScreenWizard
+## @tutorial(Creating custom logic for slides): https://github.com/ThePat02/SplashScreenWizard?tab=readme-ov-file#creating-custom-logic-for-slides
 
 
 ## Emitted when [method _slide] is finished and the slide is ready for the [member transition_out].
