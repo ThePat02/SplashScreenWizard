@@ -11,11 +11,11 @@ signal finished
 @export var duration: float = 1.0
 
 
-func _init():
+func _init() -> void:
 	hide()
 
 
-func _start():
+func _start() -> void:
 	if transition_in:
 		await transition_in._start(self)
 	else:
@@ -36,5 +36,5 @@ func _start():
 	emit_signal("finished")
 
 
-func _slide():
+func _slide() -> void:
 	pass

@@ -13,18 +13,18 @@ signal slide_finished(slide: SplashScreenSlide)
 var slides: Array[SplashScreenSlide] = []
 
 
-func _ready():
+func _ready() -> void:
 	if auto_start:
 		start()
 
 
-func start():
+func start() -> void:
 	_update_slides()
 	await _start_slides()
 	_cleanup()
 
 
-func _update_slides():
+func _update_slides() -> void:
 	slides.clear()
 
 	for child in get_children():
@@ -32,7 +32,7 @@ func _update_slides():
 			slides.append(child)
 
 
-func _start_slides():
+func _start_slides() -> void:
 	for slide: SplashScreenSlide in slides:
 		next_slide_started.emit(slide)
 
