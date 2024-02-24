@@ -34,6 +34,9 @@ var slides: Array[SplashScreenSlide] = []
 var current_slide: SplashScreenSlide
 
 
+var _delay_timer: Timer
+
+
 func _ready() -> void:
 	if auto_start:
 		start()
@@ -41,15 +44,22 @@ func _ready() -> void:
 
 func _input(event):
 	if event.is_action_pressed(skip_input_action):
-		if current_slide:
-			current_slide.skip()
+		_skip_slide()
+
 
 ## Starts the splash screen. This will update the slides, start them and clean up afterwards. Called automatically if [member auto_start] is `true`.
 func start() -> void:
+	_configure_timer()
 	_update_slides()
 	await _start_slides()
 	_cleanup()
 	finished.emit()
+
+
+func _configure_timer() -> void:
+	_delay_timer = Timer.new()
+	_delay_timer.one_shot = true
+	add_child(_delay_timer)
 
 
 func _update_slides() -> void:
@@ -71,11 +81,21 @@ func _start_slides() -> void:
 		current_slide._start()
 
 		await current_slide.finished
-		await get_tree().create_timer(delay_between_slides).timeout
+
+		_delay_timer.start(delay_between_slides)
+		await _delay_timer.timeout
 
 		slide_finished.emit(current_slide)
 
 
 func _cleanup() -> void:
+	_delay_timer.queue_free()
 	if delete_after_finished:
 		queue_free()
+
+
+func _skip_slide() -> void:
+	if current_slide:
+		current_slide.skip()
+		_delay_timer.stop()
+		_delay_timer.emit_signal("timeout")

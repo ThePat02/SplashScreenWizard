@@ -62,6 +62,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myy6d")
+delay_between_slides = 0.5
 skip_input_action = &"ui_accept"
 
 [node name="Background" type="ColorRect" parent="SplashScreen"]
