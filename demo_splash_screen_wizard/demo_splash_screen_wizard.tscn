@@ -62,6 +62,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myy6d")
+skip_input_action = &"ui_accept"
 
 [node name="Background" type="ColorRect" parent="SplashScreen"]
 layout_mode = 1
@@ -74,7 +75,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="SlideGodot" parent="SplashScreen" instance=ExtResource("3_phgod")]
 layout_mode = 1
+skippable = true
 
 [node name="SlideDisclaimer" parent="SplashScreen" instance=ExtResource("2_flgjm")]
 layout_mode = 1
 duration = 3.0
+skippable = true

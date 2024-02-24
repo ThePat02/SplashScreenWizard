@@ -26,6 +26,11 @@ signal finished
 @export var continue_after_duration: bool = true
 ## The duration of the slide in seconds.
 @export var duration: float = 1.0
+## If true, the slide can be skipped by pressing 
+@export var skippable: bool = false
+
+
+var _has_been_skipped: bool = false
 
 
 func _init() -> void:
@@ -44,13 +49,20 @@ func _start() -> void:
 		await get_tree().create_timer(duration).timeout
 	else:
 		await slide_finished
-
+	
 	if transition_out:
 		transition_out._start(self)
 	else:
 		hide()
 	
 	emit_signal("finished")
+
+
+func skip() -> void:
+	if skippable:
+		hide()
+		process_mode = PROCESS_MODE_DISABLED
+		emit_signal("finished")
 
 
 ## Override this method to implement the slide's logic and emit [signal slide_finished] when the slide is ready for the [member transition_out].
