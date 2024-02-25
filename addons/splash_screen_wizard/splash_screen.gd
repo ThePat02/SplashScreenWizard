@@ -38,6 +38,9 @@ var _delay_timer: Timer
 
 
 func _ready() -> void:
+	if not InputMap.has_action(skip_input_action):
+		push_warning("SplashScreen: The input action \"" + skip_input_action + "\" does not exist in the Input Map.")
+
 	if auto_start:
 		start()
 
