@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8jx3bua8ov0c"
-path="res://.godot/imported/ProjectIcon.svg-419cb0238c4af36f38cc5f072b0fa444.ctex"
+uid="uid://qtmotfbh0qms"
+path="res://.godot/imported/SlideTransitionFade.svg-8a952951ab04cec155b15d21c3e6335c.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/splash_screen_wizard/icons/ProjectIcon.svg"
-dest_files=["res://.godot/imported/ProjectIcon.svg-419cb0238c4af36f38cc5f072b0fa444.ctex"]
+source_file="res://addons/splash_screen_wizard/icons/SlideTransitionFade.svg"
+dest_files=["res://.godot/imported/SlideTransitionFade.svg-8a952951ab04cec155b15d21c3e6335c.ctex"]
 
 [params]
 
