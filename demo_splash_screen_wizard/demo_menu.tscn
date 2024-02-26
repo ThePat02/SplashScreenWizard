@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccfrkrre3q4px"]
+
+[ext_resource type="Texture2D" uid="uid://cohc3p1n6pudt" path="res://demo_splash_screen_wizard/assets/big_background.jpg" id="1_fhipf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tq001"]
+font_size = 56
+
+[node name="DemoMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HighResTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fhipf")
+expand_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "This image is way to big!"
+label_settings = SubResource("LabelSettings_tq001")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Old Game"
+
+[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "This button doesn't work"

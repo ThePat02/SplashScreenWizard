@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo22hma5o31ig"]
+[gd_scene load_steps=6 format=3 uid="uid://bo22hma5o31ig"]
 
 [ext_resource type="Script" path="res://addons/splash_screen_wizard/splash_screen.gd" id="1_myy6d"]
 [ext_resource type="PackedScene" uid="uid://ckqiyl367tw67" path="res://demo_splash_screen_wizard/slides/slide_disclaimer.tscn" id="2_flgjm"]
 [ext_resource type="PackedScene" uid="uid://cxqpgg8ax8bqv" path="res://demo_splash_screen_wizard/slides/slide_godot.tscn" id="3_phgod"]
+[ext_resource type="Script" path="res://addons/splash_screen_wizard/splash_screen_background_loading.gd" id="4_dpwq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xhda"]
 font_size = 56
@@ -75,9 +76,15 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="SlideDisclaimer" parent="SplashScreen" instance=ExtResource("2_flgjm")]
+visible = false
 layout_mode = 1
 duration = 3.0
+skippable = true
 
 [node name="SlideGodot" parent="SplashScreen" instance=ExtResource("3_phgod")]
 layout_mode = 1
 skippable = true
+
+[node name="SplashScreenBackgroundLoading" type="Node" parent="SplashScreen"]
+script = ExtResource("4_dpwq0")
+file_path = "res://demo_splash_screen_wizard/demo_menu.tscn"
