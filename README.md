@@ -37,6 +37,7 @@ You can install the plugin in one of the following ways:
 
 <p align="center">
   <img src="images\screenshot_tree.png" alt="Screenshot of the SceneTree"/>
+  <img src="images\screenshot_inspector.png" alt= "Screenshot of the Inspector"/>
 </p>
 
 The plugin provides the ![IconSplashScreen](addons/splash_screen_wizard/icons/SplashScreen.svg) `SplashScreen`  and ![IconSplashScreenSlide](addons/splash_screen_wizard/icons/SplashScreenSlide.svg) `SplashScreenSlide` nodes. The `SplashScreen` node is the root node of the splash screen and the `SplashScreenSlide` nodes are the slides that are shown on the splash screen in order. You can add as many slides as you want to the `SplashScreen` node and customize them to your liking.
