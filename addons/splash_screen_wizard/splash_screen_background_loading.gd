@@ -1,17 +1,27 @@
+# TODO: Add custom icon
 class_name SplashScreenBackgroundLoading extends Node
+## TODO: Add a description of the class here.
+##
+## TODO: Add a explanation of the class here.
+##
+## @tutorial: TODO: Link relevant README header here.
+
+## When enabled, the node will start loading the resource on _ready. When disabled, [method start_loading] must be called manually.
+@export var autostart: bool = true
+## The file path to the scene file (.tscn) the ResourceLoader will load.
+@export_file("*.tscn") var file_path: String
 
 
-@export var enabled: bool = true
-@export_file var file_path: String
-
-
+## The status of the thread loading the resource.
 var thread_status: ResourceLoader.ThreadLoadStatus
+## The progress of the thread loading the resource from 0 to 1.
 var thread_progress: Array = []
-var thread_result: Variant = null
+## The final loaded resource from the thread.
+var thread_result: PackedScene = null
 
 
 func _ready() -> void:
-    if not enabled:
+    if not autostart:
         set_process(false)
         return
 
@@ -40,6 +50,7 @@ func _process_thread() -> void:
             pass
 
 
+## Start loading the resource from the file path. Needs to be called manually if [member autostart] is disabled.
 func start_loading() -> void:
     if file_path == "":
         push_error(self.name + ": file_path is empty")
