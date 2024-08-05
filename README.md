@@ -29,7 +29,7 @@ You can install the plugin in one of the following ways:
 - Use the Godot Asset Library to install the plugin directly from the Godot Editor.
 - Get the latest release from the [Releases](https://github.com/ThePat02/SplashScreenWizard/releases) page and add the contents of the `addons` directory to your project.
 - Clone the repository using `git clone`.
-- Install it as git submodule using the `submodule` branch.
+- Install it as git submodule using the `submodule` branch!
 
 
 ## Usage
