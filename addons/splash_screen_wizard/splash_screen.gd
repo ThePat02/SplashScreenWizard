@@ -30,11 +30,14 @@ signal finished
 
 ## A list of all slides in the splash screen. This is automatically updated when the splash screen is started.
 var slides: Array[SplashScreenSlide] = []
+## A list of all background loading nodes in the splash screen. This is automatically updated when the splash screen is started.
+var queued_background_loading: Array[SplashScreenBackgroundLoading] = []
 ## The current slide that is being displayed.
 var current_slide: SplashScreenSlide
 
 
 var _delay_timer: Timer
+var _finished_background_loading: Array[PackedScene] = []
 
 
 func _ready() -> void:
@@ -59,10 +62,18 @@ func _input(event):
 ## Starts the splash screen. This will update the slides, start them and clean up afterwards. Called automatically if [member auto_start] is `true`.
 func start() -> void:
 	_configure_timer()
-	_update_slides()
+	_update_children()
+
 	await _start_slides()
+
 	_cleanup()
+
+	_complete_background_loading()
+
 	finished.emit()
+
+	if delete_after_finished:
+		queue_free()
 
 
 func _configure_timer() -> void:
@@ -71,12 +82,14 @@ func _configure_timer() -> void:
 	add_child(_delay_timer)
 
 
-func _update_slides() -> void:
+func _update_children() -> void:
 	slides.clear()
 
 	for child in get_children():
 		if child is SplashScreenSlide:
 			slides.append(child)
+		elif child is SplashScreenBackgroundLoading:
+			queued_background_loading.append(child)
 	
 	if slides.size() == 0:
 		push_warning("SplashScreen: No slides found. Add some SplashScreenSlide nodes as children to display them in a sequence.")
@@ -97,10 +110,29 @@ func _start_slides() -> void:
 		slide_finished.emit(current_slide)
 
 
+func _complete_background_loading() -> void:
+	if queued_background_loading.size() == 0:
+		return
+	
+	var all_loading_finished: bool = false
+	while not all_loading_finished:
+		all_loading_finished = true
+
+		for loading: SplashScreenBackgroundLoading in queued_background_loading:
+			match loading.thread_status:
+				ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
+					all_loading_finished = false
+				ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
+					_finished_background_loading.append(loading.thread_result)
+				_:
+					pass
+	
+	for loaded_scene: PackedScene in _finished_background_loading:
+		var scene_instance: Node = loaded_scene.instantiate()
+		get_parent().add_child(scene_instance)
+
 func _cleanup() -> void:
 	_delay_timer.queue_free()
-	if delete_after_finished:
-		queue_free()
 
 
 func _skip_slide() -> void:
