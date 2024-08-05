@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SlideTransitionFade" load_steps=2 format=3 uid="uid://dphiwpkixnobm"]
-
-[ext_resource type="Script" path="res://addons/splash_screen_wizard/transitions/slide_transition_fade.gd" id="1_pxv0o"]
-
-[resource]
-script = ExtResource("1_pxv0o")
-fade_type = 0
-duration = 2.0
-transition_type = 0
