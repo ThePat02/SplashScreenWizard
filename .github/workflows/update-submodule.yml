@@ -1,0 +1,39 @@
+name: Update Submodule Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v2
+    
+    - name: Setup Git
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git fetch
+    
+    - name: Clean Submodule
+      run: |
+        git checkout submodule
+        git rm -r .
+
+    - name: Update from Main
+      run: |
+        git checkout main -- addons/splash_screen_wizard
+        mv addons/splash_screen_wizard/* .
+        git rm -r addons/splash_screen_wizard
+        
+    - name: Commit to Submodule
+      continue-on-error: true
+      run: |
+        git add -A
+        git commit -am "Updated Submodule from Main"
+        git push
